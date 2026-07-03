@@ -440,6 +440,7 @@ add_executable(audiocpp_server
     app/server/main.cpp
     app/server/config.cpp
     app/server/http.cpp
+    app/server/multipart.cpp
     app/server/runtime.cpp
     app/cli/args.cpp
     app/cli/request.cpp
@@ -608,6 +609,17 @@ if (ENGINE_BUILD_TESTS)
     add_test(
         NAME encoder_module_test
         COMMAND encoder_module_test
+    )
+
+    add_executable(server_multipart_test
+        tests/unittests/test_server_multipart.cpp
+        app/server/multipart.cpp
+    )
+    target_include_directories(server_multipart_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/app/server)
+
+    add_test(
+        NAME server_multipart_test
+        COMMAND server_multipart_test
     )
 endif()
 
