@@ -232,6 +232,7 @@ function New-PrebuiltPackage {
     $buildArgs = @(
         "-Preset", $Preset,
         "-Target", "audiocpp_cli",
+        "-DeploymentBuild",
         "-Jobs", $Jobs.ToString(),
         "-CpuArch", $profileSettings.CpuArch,
         "-Llamafile", $profileSettings.Llamafile
@@ -247,6 +248,7 @@ function New-PrebuiltPackage {
     $buildArgs = @(
         "-Preset", $Preset,
         "-Target", "audiocpp_server",
+        "-DeploymentBuild",
         "-Jobs", $Jobs.ToString(),
         "-CpuArch", $profileSettings.CpuArch,
         "-Llamafile", $profileSettings.Llamafile
